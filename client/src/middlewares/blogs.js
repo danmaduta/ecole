@@ -11,9 +11,6 @@ import {
   SUBMITB
 } from "../actions/blogs";
 
-// const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
-// const COM_URL = 'https://jsonplaceholder.typicode.com/comments';
-
 // this middleware only care about the getPosts action
 export const getBlogsFlow = ({ dispatch }) => next => action => {
   next(action);
