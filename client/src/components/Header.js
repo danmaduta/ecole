@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payments from "./Payments";
 
 class Header extends React.Component {
   renderContent() {
@@ -18,6 +19,15 @@ class Header extends React.Component {
         ];
       default:
         return [
+          <li key="7">
+            <Payments />
+          </li>,
+          <li key="8" style={{ margin: "0 10px" }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="6">
+            <Link to="/surveys">Surveys</Link>
+          </li>,
           <li key="4">
             <Link to="/blogs">My blogs</Link>
           </li>,
@@ -37,7 +47,7 @@ class Header extends React.Component {
             className="left brand-logo"
             style={{ marginLeft: "10px" }}
           >
-            Blogster
+            Marketing
           </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
