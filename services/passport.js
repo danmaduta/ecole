@@ -1,7 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("@passport-next/passport-google-oauth2")
   .Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 
