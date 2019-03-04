@@ -13,7 +13,7 @@ module.exports = app => {
   });
 
   app.get("/api/blogs", requireLogin, async (req, res) => {
-    const blogs = await Blog.find().cache();
+    const blogs = await Blog.find();
     res.send(blogs);
   });
 

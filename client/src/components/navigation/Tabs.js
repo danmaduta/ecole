@@ -9,38 +9,38 @@ let sideBar = {
       <Link to="/ecole">Activites Scolaire</Link>
     </li>,
     <li key="2" style={{ padding: "5px" }}>
-      <Link to="/ecole/2">Garderies</Link>
+      <Link to="/ecole">Garderies</Link>
     </li>,
     <li key="3" style={{ padding: "5px" }}>
-      <Link to="/ecole/3">Parascolaire</Link>
+      <Link to="/ecole">Parascolaire</Link>
     </li>
   ],
   projets: [
     <li key="4" style={{ padding: "5px" }}>
-      <Link to="/projets/1">Projet d'etablissement</Link>
+      <Link to="/photos">Projet d'etablissement</Link>
     </li>,
     <li key="5" style={{ padding: "5px" }}>
-      <Link to="/projets/2">Projet pedagogique</Link>
+      <Link to="/photos">Projet pedagogique</Link>
     </li>,
     <li key="6" style={{ padding: "5px" }}>
-      <Link to="/projets/3">Projet educatif</Link>
+      <Link to="/photos">Projet educatif</Link>
     </li>
   ],
   vie_scolaire: [
     <li key="8" style={{ padding: "5px" }}>
-      <Link to="/vie_scolaire/1">Association de parents</Link>
+      <Link to="/table">Association de parents</Link>
     </li>,
     <li key="9" style={{ padding: "5px" }}>
-      <Link to="/vie_scolaire/2">Calendrier</Link>
+      <Link to="/table">Calendrier</Link>
     </li>,
     <li key="10" style={{ padding: "5px" }}>
-      <Link to="/vie_scolaire/3">Liste du materiel scolaire</Link>
+      <Link to="/table">Liste du materiel scolaire</Link>
     </li>,
     <li key="11" style={{ padding: "5px" }}>
-      <Link to="/vie_scolaire/4">Menu repas chaud</Link>
+      <Link to="/table">Menu repas chaud</Link>
     </li>,
     <li key="12" style={{ padding: "5px" }}>
-      <Link to="/vie_scolaire/5">Reglement d'ordre interieur</Link>
+      <Link to="/table">Reglement d'ordre interieur</Link>
     </li>
   ]
 };

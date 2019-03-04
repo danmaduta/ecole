@@ -77,6 +77,7 @@ class Header extends React.Component {
   };
 
   render() {
+    console.log(this.props.auth);
     return (
       <header className="Header">
         <DrawerToogle clicked={this.drawerToggleClicked} />

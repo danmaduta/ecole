@@ -13,7 +13,7 @@ const Landing = () => {
       <div className="ui cards">
         <div className="ui card">
           <div className="image">
-            <img src={Fig2} />
+            <img src={Fig2} alt="Forest 1" />
           </div>
           <div className="content">
             <p className="header">Ecole</p>
@@ -25,7 +25,7 @@ const Landing = () => {
         </div>
         <div className="ui card">
           <div className="image">
-            <img src={Fig3} />
+            <img src={Fig3} alt="Forest 2" />
           </div>
           <div className="content">
             <p className="header">Contact</p>
@@ -37,7 +37,7 @@ const Landing = () => {
         </div>
         <div className="ui card">
           <div className="image">
-            <img src={Fig1} />
+            <img src={Fig1} alt="Forest 3" />
           </div>
           <div className="content">
             <p className="header">Projets</p>
@@ -49,7 +49,7 @@ const Landing = () => {
         </div>
         <div className="ui card">
           <div className="image">
-            <img src={Fig4} />
+            <img src={Fig4} alt="Forest 4" />
           </div>
           <div className="content">
             <p className="header">Vie scolaire</p>
@@ -61,7 +61,7 @@ const Landing = () => {
         </div>
         <div className="ui card">
           <div className="image">
-            <img src={Fig5} />
+            <img src={Fig5} alt="Forest 5" />
           </div>
           <div className="content">
             <p className="header">Info Parents</p>
