@@ -1,0 +1,17 @@
+.DrawerToogle {
+  width: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.7rem 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.DrawerToogle div {
+  width: 90%;
+  height: 0.28rem;
+  background-color: white;
+}

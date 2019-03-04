@@ -1,4 +1,3 @@
-import "materialize-css/dist/css/materialize.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
@@ -6,17 +5,18 @@ import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
 import App from "./components/App";
 import reducers from "./reducers";
-import { blogsMidl } from "./middlewares/blogs";
+import "./index.css";
 
+//Development only axios helpers!
 import axios from "axios";
+window.axios = axios;
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-window.axios = axios;
 const store = createStore(
   reducers,
   {},
-  composeEnhancers(applyMiddleware(...blogsMidl, reduxThunk))
+  composeEnhancers(applyMiddleware(reduxThunk))
 );
 
 ReactDOM.render(

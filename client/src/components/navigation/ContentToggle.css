@@ -1,0 +1,37 @@
+.content-toggle {
+  border: none;
+  margin: 6px 0;
+  background: #fff;
+}
+
+.content-toggle-summary {
+  cursor: pointer;
+  border: none;
+  background: inherit;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 8px;
+  font: inherit;
+}
+
+.content-toggle-summary:after {
+  display: inline-block;
+  width: 1rem;
+  content: "▸";
+}
+.content-toggle-summary-open:after {
+  content: "▾";
+}
+
+.content-toggle-details {
+  padding: 0;
+}
+
+.content-toggle ul {
+  margin-top: 5px;
+  padding-left: 10px;
+  font: inherit;
+  text-decoration: none;
+}

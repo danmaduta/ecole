@@ -16,11 +16,11 @@ class BlogShow extends React.Component {
     const { title, content } = this.props.blog;
 
     return (
-      <div>
-        <h3>{title}</h3>
+      <div className="ui container">
+        <h2>{title}</h2>
         <p>{content}</p>
-        <Link to="/blogs" className="red btn-flat white-text">
-          Finish
+        <Link to="/blogs" className="ui primary basic button">
+          Back
         </Link>
       </div>
     );

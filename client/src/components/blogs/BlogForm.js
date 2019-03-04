@@ -1,13 +1,9 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
-import { connect } from "react-redux";
-import { compose } from "redux";
-import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BlogField from "./BlogField";
 import formFields from "./formFields";
-import { submitB } from "../../actions/blogs";
 
 class BlogForm extends Component {
   renderFields() {
@@ -24,22 +20,23 @@ class BlogForm extends Component {
     });
   }
 
-  onSubmit(props) {
-    console.log(props);
-    this.props.submitB(props);
-    this.props.history.push("/blogs");
-  }
+  onSubmit = formProps => {
+    this.props.onSubmit(formProps);
+  };
 
   render() {
-    const { handleSubmit } = this.props;
+    // const { handleSubmit } = this.props;
     return (
-      <div>
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <div className="ui container">
+        <form
+          onSubmit={this.props.handleSubmit(this.onSubmit)}
+          className="ui form error"
+        >
           {this.renderFields()}
-          <Link to="/blogs" className="red btn-flat white-text">
+          <Link to="/blogs" className="ui negative basic button">
             Cancel
           </Link>
-          <button type="submit" className="teal btn-flat right white-text">
+          <button type="submit" className="ui primary basic button">
             Submit
           </button>
         </form>
@@ -60,14 +57,7 @@ function validate(values) {
   return errors;
 }
 
-export default compose(
-  withRouter,
-  connect(
-    null,
-    { submitB }
-  ),
-  reduxForm({
-    validate,
-    form: "blogForm"
-  })
-)(BlogForm);
+export default reduxForm({
+  validate,
+  form: "blogForm"
+})(BlogForm);

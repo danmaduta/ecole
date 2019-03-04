@@ -1,41 +1,47 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchUser } from "../actions";
-import Header from "./Header";
+import Header from "./navigation/Header";
 import Landing from "./Landing";
 import Dashboard from "./Dashboard";
 import BlogNew from "./blogs/BlogNew";
 import BlogShow from "./blogs/BlogShow";
-import Dashboard2 from "./Dashboard2";
+import BlogEdit from "./blogs/BlogEdit";
+import BlogDelete from "./blogs/BlogDelete";
+import Ecole from "./ecole/Ecole";
+import SideDrawer from "./navigation/SideDrawer";
+import Table from "./table/Table";
+import history from "../history";
+import Photos from "./photos/Photos";
 
-const SurveyNew = () => <h2>SurveyNew</h2>;
+const App = props => {
+  useEffect(() => {
+    props.fetchUser();
+  }, []);
 
-class App extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/blogs" component={Dashboard} />
-              <Route exact path="/blogs/new" component={BlogNew} />
-              <Route path="/blogs/:id" component={BlogShow} />
-              <Route exact path="/surveys" component={Dashboard2} />
-              <Route path="/surveys/new" component={SurveyNew} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      <Router history={history}>
+        <div>
+          <Header />
+          <SideDrawer />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/blogs" component={Dashboard} />
+            <Route exact path="/blogs/new" component={BlogNew} />
+            <Route exact path="/blogs/:id" component={BlogShow} />
+            <Route exact path="/blogs/edit/:id" component={BlogEdit} />
+            <Route exact path="/blogs/delete/:id" component={BlogDelete} />
+            <Route exact path="/ecole" component={Ecole} />
+            <Route exact path="/table" component={Table} />
+            <Route exact path="/photos" component={Photos} />
+          </Switch>
+        </div>
+      </Router>
+    </div>
+  );
+};
 
 export default connect(
   null,
