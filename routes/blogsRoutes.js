@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
-const cleanCache = require("../middlewares/cleanCache");
 const Blog = mongoose.model("Blog");
 
 module.exports = app => {
@@ -18,7 +17,7 @@ module.exports = app => {
     res.send(blogs);
   });
 
-  app.post("/api/blogs", requireLogin, cleanCache, async (req, res) => {
+  app.post("/api/blogs", requireLogin, async (req, res) => {
     const { title, content } = req.body;
 
     const blog = new Blog({
@@ -35,45 +34,35 @@ module.exports = app => {
     }
   });
 
-  app.patch(
-    "/api/blogs/edit/:id",
-    requireLogin,
-    cleanCache,
-    async (req, res) => {
-      const { title, content } = req.body;
+  app.patch("/api/blogs/edit/:id", requireLogin, async (req, res) => {
+    const { title, content } = req.body;
 
-      const blog = await Blog.findOneAndUpdate(
-        {
-          _user: req.user.id,
-          _id: req.params.id
-        },
-        { $set: { title, content } }
-      );
-
-      try {
-        res.send(blog);
-      } catch (err) {
-        res.send(400, err);
-      }
-    }
-  );
-
-  app.delete(
-    "/api/blogs/delete/:id",
-    requireLogin,
-    cleanCache,
-    async (req, res) => {
-      const blog = await Blog.findOneAndDelete({
+    const blog = await Blog.findOneAndUpdate(
+      {
         _user: req.user.id,
         _id: req.params.id
-      });
-      try {
-        res.send("Deleted successfully");
-      } catch (err) {
-        res.send(400, err);
-      }
+      },
+      { $set: { title, content } }
+    );
+
+    try {
+      res.send(blog);
+    } catch (err) {
+      res.send(400, err);
     }
-  );
+  });
+
+  app.delete("/api/blogs/delete/:id", requireLogin, async (req, res) => {
+    const blog = await Blog.findOneAndDelete({
+      _user: req.user.id,
+      _id: req.params.id
+    });
+    try {
+      res.send("Deleted successfully");
+    } catch (err) {
+      res.send(400, err);
+    }
+  });
 };
 // const redis = require("redis");
 // const redisUrl = "redis://127.0.0.1:6379";
