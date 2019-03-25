@@ -4,6 +4,7 @@ import "./ContentToggle.css";
 const ContentToggle = props => {
   let summaryClassName = "content-toggle-summary";
 
+  
   if (props.isOpen) {
     summaryClassName += " content-toggle-summary-open";
   }
